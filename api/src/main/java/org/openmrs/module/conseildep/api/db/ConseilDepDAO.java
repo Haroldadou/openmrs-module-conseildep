@@ -11,26 +11,17 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.conseildep.api;
+package org.openmrs.module.conseildep.api.db;
 
 import java.util.Collection;
 
 import org.openmrs.module.conseildep.GeneratedId;
-import org.springframework.transaction.annotation.Transactional;
+import org.openmrs.module.conseildep.api.ConseilDepService;
 
 /**
- * This service exposes module's core functionality. It is a Spring managed bean
- * which is configured in moduleApplicationContext.xml.
- * <p>
- * It can be accessed only via Context:<br>
- * <code>
- * Context.getService(GeneratedIdService.class).someMethod();
- * </code>
- * 
- * @see org.openmrs.api.context.Context
+ *  Database methods for {@link ConseilDepService}.
  */
-@Transactional
-public interface GeneratedIdService {
+public interface ConseilDepDAO {
 
 	/**
 	 * Saves the GeneratedId to the DB for persistence
@@ -46,7 +37,7 @@ public interface GeneratedIdService {
 	 * @param generatedId
 	 *            the object to delete
 	 */
-	public void deleteGeneratedId(GeneratedId generatedId, String reason);
+	public void retireGeneratedId(GeneratedId generatedId, String reason);
 
 	/**
 	 * Gets a GeneratedId from the DB by matching a given ID
@@ -76,5 +67,5 @@ public interface GeneratedIdService {
 	 *            the object to edit
 	 */
 	public void updateGeneratedId(GeneratedId generatedId);
-
+	
 }

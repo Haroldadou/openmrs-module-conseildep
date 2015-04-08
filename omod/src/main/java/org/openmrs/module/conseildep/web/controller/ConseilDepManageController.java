@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * The main controller.
  */
 @Controller
-public class  GenerateuridManageController {
+public class  ConseilDepManageController {
 	
 	protected final Log log = LogFactory.getLog(getClass());
 	

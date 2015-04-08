@@ -20,12 +20,12 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.openmrs.module.conseildep.GeneratedId;
-import org.openmrs.module.conseildep.api.db.GeneratedIdDAO;
+import org.openmrs.module.conseildep.api.db.ConseilDepDAO;
 
 /**
- * It is a default implementation of {@link GeneratedIdDAO}.
+ * It is a default implementation of {@link ConseilDepDAO}.
  */
-public class HibernateGeneratedIdDAO implements GeneratedIdDAO {
+public class HibernateConseilDepDAO implements ConseilDepDAO {
 	protected final Log log = LogFactory.getLog(this.getClass());
 
 	private SessionFactory sessionFactory;
@@ -48,7 +48,7 @@ public class HibernateGeneratedIdDAO implements GeneratedIdDAO {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.db.GeneratedIdDAO#saveGeneratedId(org.openmrs.module.generateurid.GeneratedId)
+	 * @see org.openmrs.module.ConseilDepDAO.api.db.GeneratedIdDAO#saveGeneratedId(org.openmrs.module.generateurid.GeneratedId)
 	 */
 	@Override
 	public void saveGeneratedId(GeneratedId generatedId) {
@@ -59,7 +59,7 @@ public class HibernateGeneratedIdDAO implements GeneratedIdDAO {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.db.GeneratedIdDAO#retireGeneratedId(org.openmrs.module.generateurid.GeneratedId,
+	 * @see org.openmrs.module.ConseilDepDAO.api.db.GeneratedIdDAO#retireGeneratedId(org.openmrs.module.generateurid.GeneratedId,
 	 *      java.lang.String)
 	 */
 	@Override
@@ -72,7 +72,7 @@ public class HibernateGeneratedIdDAO implements GeneratedIdDAO {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.db.GeneratedIdDAO#getGeneratedIdById(java.lang.Integer)
+	 * @see org.openmrs.module.ConseilDepDAO.api.db.GeneratedIdDAO#getGeneratedIdById(java.lang.Integer)
 	 */
 	@Override
 	public GeneratedId getGeneratedIdById(Integer generatedidId) {
@@ -84,7 +84,7 @@ public class HibernateGeneratedIdDAO implements GeneratedIdDAO {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.db.GeneratedIdDAO#getGeneratedIdByIdentifier(java.lang.String)
+	 * @see org.openmrs.module.ConseilDepDAO.api.db.GeneratedIdDAO#getGeneratedIdByIdentifier(java.lang.String)
 	 */
 	@Override
 	public GeneratedId getGeneratedIdByIdentifier(String patientIdentifiant) {
@@ -98,7 +98,7 @@ public class HibernateGeneratedIdDAO implements GeneratedIdDAO {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.db.GeneratedIdDAO#getAllGeneratedIds()
+	 * @see org.openmrs.module.ConseilDepDAO.api.db.GeneratedIdDAO#getAllGeneratedIds()
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -111,7 +111,7 @@ public class HibernateGeneratedIdDAO implements GeneratedIdDAO {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.db.GeneratedIdDAO#updateGeneratedId(org.openmrs.module.generateurid.GeneratedId)
+	 * @see org.openmrs.module.ConseilDepDAO.api.db.GeneratedIdDAO#updateGeneratedId(org.openmrs.module.generateurid.GeneratedId)
 	 */
 	@Override
 	public void updateGeneratedId(GeneratedId generatedId) {

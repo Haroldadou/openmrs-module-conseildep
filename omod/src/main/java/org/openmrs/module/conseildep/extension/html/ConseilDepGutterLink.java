@@ -9,7 +9,7 @@ import org.openmrs.module.web.extension.LinkExt;
  * @author Abel
  *
  */
-public class GenerateurIdGutterLink extends LinkExt {
+public class ConseilDepGutterLink extends LinkExt {
 
 	/*
 	 * (non-Javadoc)

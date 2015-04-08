@@ -8,7 +8,7 @@
 	<version>${project.parent.version}</version>
 	<package>${project.parent.groupId}.${project.parent.artifactId}
 	</package>
-	<author>Mamadou Ben TRAORE</author>
+	<author>SIGDEP-2 Team</author>
 	<description>
 		${project.parent.description}
 	</description>
@@ -19,7 +19,7 @@
 
 
 	<!-- Module Activator -->
-	<activator>${project.parent.groupId}.${project.parent.artifactId}.GenerateuridActivator
+	<activator>${project.parent.groupId}.${project.parent.artifactId}.ConseilDepActivator
 	</activator>
 
 
@@ -32,19 +32,14 @@
 
 	<extension>
 		<point>org.openmrs.gutter.tools</point>
-		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.GenerateurIdGutterLink
+		<class>${project.parent.groupId}.${project.parent.artifactId}.extension.html.ConseilDepGutterLink
 		</class>
 	</extension>
-
-	<!-- Maps hibernate file's, if present -->
-	<mappingFiles>
-		GeneratedId.hbm.xml
-	</mappingFiles>
 
 	<!-- Privileges list -->
 	<privilege>
 		<name>Manage CDV et CDIP</name>
-		<description>Can Manage VCT for SIGDEP-2</description>
+		<description>Able to Manage VCT for SIGDEP-2</description>
 	</privilege>
 
 	<!-- Internationalization -->
@@ -63,5 +58,10 @@
 	</messages>
 	<!-- /Internationalization -->
 
+	<!-- Maps hibernate file's, if present -->
+	<mappingFiles>
+		ConseilDep.hbm.xml
+	</mappingFiles>
+	
 </module>
 

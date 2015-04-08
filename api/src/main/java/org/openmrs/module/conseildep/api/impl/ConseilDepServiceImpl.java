@@ -18,37 +18,37 @@ import java.util.Collection;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.module.conseildep.GeneratedId;
-import org.openmrs.module.conseildep.api.GeneratedIdService;
-import org.openmrs.module.conseildep.api.db.GeneratedIdDAO;
+import org.openmrs.module.conseildep.api.ConseilDepService;
+import org.openmrs.module.conseildep.api.db.ConseilDepDAO;
 
 /**
- * It is a default implementation of {@link GeneratedIdService}.
+ * It is a default implementation of {@link ConseilDepService}.
  */
-public class GeneratedIdServiceImpl implements GeneratedIdService {
+public class ConseilDepServiceImpl implements ConseilDepService {
 
 	protected final Log log = LogFactory.getLog(this.getClass());
 
-	private GeneratedIdDAO dao;
+	private ConseilDepDAO dao;
 
 	/**
 	 * @param dao
 	 *            the dao to set
 	 */
-	public void setDao(GeneratedIdDAO dao) {
+	public void setDao(ConseilDepDAO dao) {
 		this.dao = dao;
 	}
 
 	/**
 	 * @return the dao
 	 */
-	public GeneratedIdDAO getDao() {
+	public ConseilDepDAO getDao() {
 		return dao;
 	}
 
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.GeneratedIdService#saveGeneratedId(org.openmrs.module.generateurid.GeneratedId)
+	 * @see org.openmrs.module.ConseilDepService.api.GeneratedIdService#saveGeneratedId(org.openmrs.module.generateurid.GeneratedId)
 	 */
 	@Override
 	public void saveGeneratedId(GeneratedId generatedId) {
@@ -59,7 +59,7 @@ public class GeneratedIdServiceImpl implements GeneratedIdService {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.GeneratedIdService#deleteGeneratedId(org.openmrs.module.generateurid.GeneratedId)
+	 * @see org.openmrs.module.ConseilDepService.api.GeneratedIdService#deleteGeneratedId(org.openmrs.module.generateurid.GeneratedId)
 	 */
 	@Override
 	public void deleteGeneratedId(GeneratedId generatedId, String reason) {
@@ -70,7 +70,7 @@ public class GeneratedIdServiceImpl implements GeneratedIdService {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.GeneratedIdService#getGeneratedIdById(java.lang.Integer)
+	 * @see org.openmrs.module.ConseilDepService.api.GeneratedIdService#getGeneratedIdById(java.lang.Integer)
 	 */
 	@Override
 	public GeneratedId getGeneratedIdById(Integer generatedidId) {
@@ -81,7 +81,7 @@ public class GeneratedIdServiceImpl implements GeneratedIdService {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.GeneratedIdService#getGeneratedIdByIdentifier(java.lang.String)
+	 * @see org.openmrs.module.ConseilDepService.api.GeneratedIdService#getGeneratedIdByIdentifier(java.lang.String)
 	 */
 	@Override
 	public GeneratedId getGeneratedIdByIdentifier(String patientIdentifiant) {
@@ -92,7 +92,7 @@ public class GeneratedIdServiceImpl implements GeneratedIdService {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.GeneratedIdService#getAllGeneratedIds()
+	 * @see org.openmrs.module.ConseilDepService.api.GeneratedIdService#getAllGeneratedIds()
 	 */
 	@Override
 	public Collection<GeneratedId> getAllGeneratedIds() {
@@ -103,7 +103,7 @@ public class GeneratedIdServiceImpl implements GeneratedIdService {
 	/**
 	 * (non-Javadoc)
 	 * 
-	 * @see org.openmrs.module.generateurid.api.GeneratedIdService#updateGeneratedId(org.openmrs.module.generateurid.GeneratedId)
+	 * @see org.openmrs.module.ConseilDepService.api.GeneratedIdService#updateGeneratedId(org.openmrs.module.generateurid.GeneratedId)
 	 */
 	@Override
 	public void updateGeneratedId(GeneratedId generatedId) {

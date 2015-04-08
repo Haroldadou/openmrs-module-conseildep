@@ -21,7 +21,7 @@ import org.openmrs.module.ModuleActivator;
 /**
  * This class contains the logic that is run every time this module is either started or stopped.
  */
-public class GenerateuridActivator implements ModuleActivator {
+public class ConseilDepActivator implements ModuleActivator {
 	
 	protected Log log = LogFactory.getLog(getClass());
 		
