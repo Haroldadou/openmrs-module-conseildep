@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqldiff PUBLIC "-//OpenMRS//DTD OpenMRS SQL Diff Config 1.0//EN" "http://resources.openmrs.org/doctype/sqldiff-1.0.dtd">
+
+<sqldiff version="1.0">
+	<help>
+		USE:
+			The diffs are ordered by data model version number.
+			The script can be run in a top down fashion and is
+			expected to not fail or overwrite old data
+		
+		EXPECT:
+			- "use business-database-name;" was called prior to
+			   calling this script
+	</help>
+
+	<diff>
+		<version>1.0-0</version>
+		<author>Harold ADOU</author>
+		<date></date>
+		<description></description>
+		<sql>
+		 CREATE TABLE `conseildep_client_cd` (
+			  `client_id` int(11) NOT NULL AUTO_INCREMENT,
+			  `code_client` varchar(255) NOT NULL,
+			  `person_id` int(11) NOT NULL,
+			  `profession` VARCHAR(250) DEFAULT NULL,
+			  `client_phone` numeric DEFAULT NULL,			  
+			  `creator` int(11) NOT NULL,
+			  `date_created` datetime NOT NULL,
+			  `changed_by` int(11) default NULL,
+			  `date_changed` datetime default NULL,
+			  `retired` tinyint(1) NOT NULL DEFAULT '0',
+			  `date_retired` datetime NOT NULL,
+			  `retire_reason` VARCHAR(250) DEFAULT NULL,
+			  `retired_by` int(11) DEFAULT NULL,
+			
+			  PRIMARY KEY (`client_id`),
+			
+			 CONSTRAINT `user_creator_conseildep_client_cd` FOREIGN KEY (`creator`) REFERENCES `users` (`user_id`),
+			 CONSTRAINT `user_who_conseildep_client_cd` FOREIGN KEY (`changed_by`) REFERENCES `users` (`user_id`),
+			 CONSTRAINT `user_who_retired_conseildep_client_cd` FOREIGN KEY (`retired_by`) REFERENCES `users` (`user_id`)
+			  
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+		CREATE TABLE `conseildep_visit_cd` (
+		  `visit_id` int(11) NOT NULL AUTO_INCREMENT,
+		  `client_id` int(11) NOT NULL,
+		  `date_de_cd` datetime NOT NULL,
+		  `provider_id` int(11) NOT NULL,
+		  `date_annonce_du_resultat` datetime DEFAULT NULL,
+		  `type_de_test` varchar(250) DEFAULT NULL,
+		  `nom_de_kit` varchar(250) DEFAULT NULL,
+		  `no_de_lot` varchar(50) DEFAULT NULL,
+		  `date_expiration` datetime DEFAULT NULL,
+		  `client_conjoint` varchar(250) DEFAULT NULL,
+		  `type_general` tinyint(1) DEFAULT NULL,
+		  `type_ps` tinyint(1) DEFAULT NULL,
+		  `type_udi` tinyint(1) DEFAULT NULL,
+		  `type_hsh` tinyint(1) DEFAULT NULL,
+		  `type_autre` varchar(50) DEFAULT NULL,
+		  `resultat_final` varchar(10) DEFAULT NULL,
+		  `resultat_final_pos` varchar(10) DEFAULT NULL,
+		  `commentaire` varchar(255) DEFAULT NULL,
+		  `creator` int(11) NOT NULL,
+		  `date_created` datetime NOT NULL,
+		  `changed_by` int(11) DEFAULT NULL,
+		  `date_changed` datetime DEFAULT NULL,
+		  `retired` tinyint(1) NOT NULL DEFAULT '0',
+		  `date_retired` datetime NOT NULL,
+		  `retire_reason` varchar(250) DEFAULT NULL,
+		  `retired_by` int(11) DEFAULT NULL,
+		  
+		  PRIMARY KEY (`visit_id`),
+		  
+		  CONSTRAINT `le_client_qui_fait_la_visite` FOREIGN KEY (`client_id`) REFERENCES `conseildep_client_cd` (`client_id`),
+		  CONSTRAINT `le_prestataire_de_soins` FOREIGN KEY (`provider_id`) REFERENCES `provider` (`provider_id`),
+		  CONSTRAINT `user_creator_conseildep_visit_cd` FOREIGN KEY (`creator`) REFERENCES `users` (`user_id`),
+		  CONSTRAINT `user_who_conseildep_visit_cd` FOREIGN KEY (`changed_by`) REFERENCES `users` (`user_id`),
+		  CONSTRAINT `user_who_retired_conseildep_visit_cd` FOREIGN KEY (`retired_by`) REFERENCES `users` (`user_id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+			
+			
+		</sql>
+	</diff>
+
+	
+</sqldiff>
